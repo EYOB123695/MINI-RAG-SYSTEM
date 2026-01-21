@@ -2,7 +2,7 @@
 
 A Retrieval Augmented Generation (RAG) system with **self-reflection** capabilities for querying the Ethiopian Commercial Code (Proclamation No. 1243/2021).
 
-## 🎯 What is Self-Reflective RAG?
+##  What is Self-Reflective RAG?
 
 Traditional RAG systems retrieve relevant documents and generate answers, but they don't verify answer quality. **Self-Reflective RAG** adds an evaluation layer that:
 
@@ -13,7 +13,7 @@ Traditional RAG systems retrieve relevant documents and generate answers, but th
 
 This ensures higher quality, more accurate responses!
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 User Query
@@ -31,7 +31,7 @@ Quality OK? → YES → Return final answer
 Repeat (max 2 iterations)
 ```
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **LangChain** - RAG orchestration
 - **ChromaDB** - Vector database (persistent storage)
@@ -39,7 +39,7 @@ Repeat (max 2 iterations)
 - **Ollama** - Local LLM inference (llama2/mistral)
 - **PyPDF2/pdfplumber** - PDF processing
 
-## 📋 Prerequisites
+## Prerequisites
 
 ### 1. Install Python 3.8+
 
@@ -64,7 +64,7 @@ ollama pull llama2
 
 This downloads the llama2 model (~4GB). You only need to do this once.
 
-## 🚀 Setup Instructions
+##  Setup Instructions
 
 ### Step 1: Install Dependencies
 
@@ -92,12 +92,12 @@ On first run, the system will:
 
 **This takes 5-10 minutes on first run.** Subsequent runs are instant!
 
-## 💬 Usage
+##  Usage
 
 Once initialized, you can ask questions about Ethiopian Commercial Law:
 
 ```
-❓ Your question: What are the requirements for forming a business organization?
+ Your question: What are the requirements for forming a business organization?
 ```
 
 The system will:
@@ -113,7 +113,7 @@ The system will:
 - "What are the obligations of a shareholder?"
 - "How is a company dissolved according to the commercial code?"
 
-## 🧪 Testing if Everything Works
+##  Testing if Everything Works
 
 ### Quick Test
 
@@ -130,9 +130,9 @@ If you see this, everything works:
       Ethiopian Commercial Code Question Answering
 ============================================================
 
-🚀 Initializing system...
+ Initializing system...
 
-📄 Step 1: Processing PDF document...
+ Step 1: Processing PDF document...
 ```
 
 ### Test Individual Components
@@ -157,7 +157,7 @@ python -m self_reflective_rag.rag_pipeline
 python -m self_reflective_rag.reflection
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 New folder/
@@ -176,7 +176,7 @@ New folder/
 └── README.md
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 Edit `self_reflective_rag/config.py` to customize:
 
@@ -185,7 +185,7 @@ Edit `self_reflective_rag/config.py` to customize:
 - **Retrieval**: Modify `TOP_K_RETRIEVAL` (how many chunks to retrieve)
 - **Reflection**: Set `REFLECTION_THRESHOLD` and `MAX_REFLECTION_ITERATIONS`
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### "Ollama not found" error
 
@@ -222,7 +222,7 @@ https://ethiodata.et/wp-content/uploads/2023/01/Commercial-Code-of-Ethiopia-Engl
 
 Save it to: `data/commercial_code.pdf`
 
-## 📊 How Self-Reflection Works
+##  How Self-Reflection Works
 
 Each answer is evaluated on 3 criteria:
 
@@ -238,7 +238,7 @@ If the overall score is below 7.0/10, the system:
 
 This happens up to 2 times, ensuring high-quality answers!
 
-## 📝 Notes
+##  Notes
 
 - **First run**: Takes 5-10 minutes to process the PDF and build the vector store
 - **Subsequent runs**: Instant startup (uses cached vector DB)
@@ -248,27 +248,27 @@ This happens up to 2 times, ensuring high-quality answers!
 ## 🎓 Example Session
 
 ```
-❓ Your question: What is a commercial business?
+Your question: What is a commercial business?
 
 ============================================================
 SELF-REFLECTIVE RAG GENERATION
 ============================================================
 
-📍 Iteration 1
+ Iteration 1
 Query: What is a commercial business?
 
-💡 Generated Answer:
+Generated Answer:
 According to the Ethiopian Commercial Code, a commercial business refers to...
 
-🤔 Reflecting on answer quality...
+Reflecting on answer quality...
 
-📊 Reflection Scores:
+Reflection Scores:
    Relevance: 9.0/10
    Grounding: 8.5/10
    Completeness: 8.0/10
    Overall: 8.5/10
 
-✅ Answer quality meets threshold (7.0). Stopping.
+Answer quality meets threshold (7.0). Stopping.
 
 ============================================================
 FINAL RESULT
@@ -282,7 +282,7 @@ Answer Improved: No
 ============================================================
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Feel free to modify and extend this system! Some ideas:
 - Add more data sources
@@ -290,7 +290,7 @@ Feel free to modify and extend this system! Some ideas:
 - Add citation extraction
 - Support multiple languages
 
-## 📄 License
+##  License
 
 This project uses the Ethiopian Commercial Code (Proclamation No. 1243/2021) as the knowledge base, which is a public legal document.
 
